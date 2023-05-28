@@ -1,8 +1,8 @@
-import { Button } from "@mantine/core";
 import "./App.css";
+import AppShellPage from "./AppShell";
 
 function App() {
-  return <Button>Click me!</Button>;
+  return <AppShellPage />;
 }
 
 export default App;
