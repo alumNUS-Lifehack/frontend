@@ -1,3 +1,5 @@
+'use client';
+
 import { useState } from "react";
 import {
   AppShell,
@@ -10,13 +12,12 @@ import {
   Burger,
   useMantineTheme,
 } from "@mantine/core";
-import { BrowserRouter as Router, Link, Route, Routes } from "react-router-dom";
+import Link from "next/link";
 
-export default function AppShellPage() {
+export default function Home() {
   const theme = useMantineTheme();
   const [opened, setOpened] = useState(false);
   return (
-    <Router>
       <AppShell
         styles={{
           main: {
@@ -37,15 +38,15 @@ export default function AppShellPage() {
           >
             <Navbar.Section grow mt="lg">
               <div style={{ display: "flex", flexDirection: "column" }}>
-                <Text component={Link} variant="link" to="/">
+                <Link href="/">
                   Home Page
-                </Text>
-                <Text component={Link} variant="link" to="/chat">
+                </Link>
+                <Link href="/chat">
                   Chat
-                </Text>
-                <Text component={Link} variant="link" to="/findMentor">
+                </Link>
+                <Link href="/findMentor">
                   Select mentor
-                </Text>
+                </Link>
               </div>
             </Navbar.Section>
           </Navbar>
@@ -84,6 +85,5 @@ export default function AppShellPage() {
       >
         <Text>Resize app to see responsive navbar in action</Text>
       </AppShell>
-    </Router>
   );
 }
