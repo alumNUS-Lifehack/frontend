@@ -1,11 +1,14 @@
-import React from 'react';
+"use client";
 
-import Image from 'next/image'
+import React from 'react';
+import ChatBox from "@/app/chat/ChatBox";
 
 export default function Page() {
   return (
     <main>
-      
+    <div>
+    <ChatBox />
+  </div>
     </main>
   )
 }
