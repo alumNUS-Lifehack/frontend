@@ -14,10 +14,14 @@ import {
   Space,
 } from "@mantine/core";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 import url from "../../../utils/url";
 
-const postLogin = async (values: { email: string; password: string }) => {
+const postLogin = async (
+  values: { email: string; password: string },
+  router: any
+) => {
   const formInput = {
     email: values.email,
     password: values.password,
@@ -33,6 +37,7 @@ const postLogin = async (values: { email: string; password: string }) => {
   if (data.token) {
     localStorage.setItem("token", "Bearer " + data.token);
     localStorage.setItem("user", JSON.stringify(data.user));
+    router.push("/home");
   }
 };
 
@@ -43,6 +48,8 @@ export default function Login() {
       password: "",
     },
   });
+
+  const router = useRouter();
 
   return (
     <Container size={420} my={40}>
@@ -58,7 +65,7 @@ export default function Login() {
         Do not have an account yet? <Link href="/signup">Signup.</Link>
       </Text>
       <Paper withBorder shadow="md" p={30} mt={30} radius="md">
-        <form onSubmit={form.onSubmit((values) => postLogin(values))}>
+        <form onSubmit={form.onSubmit((values) => postLogin(values, router))}>
           <TextInput
             label="Email"
             placeholder="Email"
