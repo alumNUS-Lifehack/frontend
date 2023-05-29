@@ -20,12 +20,17 @@ interface MessageData {
   createdAt: string;
 }
 
-const ChatBox: React.FC = () => {
+interface UserProps {
+  name: string;
+  id: string;
+}
+
+const ChatBox: React.FC<UserProps> = (user) => {
   const [messages, setMessages] = useState<MessageData[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
-      const docRef = doc(db, "groups", "e0000000");
+      const docRef = doc(db, "groups", user.user.id);
       console.log(docRef);
       const q = query(collection(docRef, "messages"), orderBy("createdAt"), limit(50));
       const unsubscribe = onSnapshot(q, (snapshot: QuerySnapshot) => {
@@ -35,6 +40,7 @@ const ChatBox: React.FC = () => {
         });
         setMessages(messages);
         console.log(messages);
+        console.log(user.user.id)
       });
       return () => unsubscribe();
     };
@@ -42,13 +48,13 @@ const ChatBox: React.FC = () => {
   }, []);
 
   return (
-    <main >
+    <main className='chat-box'>
       <div>
         {messages?.map((message) => (
           <Message key={message.id} message={message} class="media media-chat" />
         ))}
       </div>
-      <SendMessage/>
+      <SendMessage key={user.user.id} user={user.user}/>
     </main>
   );
 };
