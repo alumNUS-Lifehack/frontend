@@ -8,8 +8,7 @@ export default function UnauthHeader() {
         <Image src="./logo.svg" alt="Logo" height={48} width={48} />
         <Group align="center" spacing="xl" style={{ marginLeft: "auto" }}>
           <Link href="/login">Login</Link>
-          <Link href="/mentorSignup">Signup as Mentor</Link>
-          <Link href="/menteeSignup">Signup as Mentee</Link>
+          <Link href="/signup">Signup</Link>
         </Group>
       </Group>
     </Header>
