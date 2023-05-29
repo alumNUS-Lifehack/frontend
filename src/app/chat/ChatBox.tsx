@@ -1,4 +1,4 @@
-import './chat.css';
+import "./chat.css";
 import { useState, useEffect } from "react";
 import {
   query,
@@ -21,8 +21,10 @@ interface MessageData {
 }
 
 interface UserProps {
-  name: string;
-  id: string;
+  user: {
+    name: string;
+    id: string;
+  };
 }
 
 const ChatBox: React.FC<UserProps> = (user) => {
@@ -32,15 +34,22 @@ const ChatBox: React.FC<UserProps> = (user) => {
     const fetchData = async () => {
       const docRef = doc(db, "groups", user.user.id);
       console.log(docRef);
-      const q = query(collection(docRef, "messages"), orderBy("createdAt"), limit(50));
+      const q = query(
+        collection(docRef, "messages"),
+        orderBy("createdAt"),
+        limit(50)
+      );
       const unsubscribe = onSnapshot(q, (snapshot: QuerySnapshot) => {
         const messages: MessageData[] = [];
         snapshot.forEach((doc) => {
-          messages.push({ ...doc.data(), id: doc.id } as MessageData);
+          messages.push({
+            ...doc.data(),
+            id: doc.id,
+          } as unknown as MessageData);
         });
         setMessages(messages);
         console.log(messages);
-        console.log(user.user.id)
+        console.log(user.user.id);
       });
       return () => unsubscribe();
     };
@@ -48,13 +57,17 @@ const ChatBox: React.FC<UserProps> = (user) => {
   }, []);
 
   return (
-    <main className='chat-box'>
+    <main className="chat-box">
       <div>
         {messages?.map((message) => (
-          <Message key={message.id} message={message} class="media media-chat" />
+          <Message
+            key={message.id}
+            message={message}
+            class="media media-chat"
+          />
         ))}
       </div>
-      <SendMessage key={user.user.id} user={user.user}/>
+      <SendMessage key={user.user.id} user={user.user} />
     </main>
   );
 };
