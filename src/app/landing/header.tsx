@@ -1,3 +1,5 @@
+"use client";
+
 import { createStyles, Header, Container, Image, rem } from "@mantine/core";
 
 const useStyles = createStyles((theme) => ({
@@ -40,7 +42,7 @@ export function HeaderSimple() {
       <Container className={classes.header}>
         <Image src="./logo.svg" alt="Logo" height={28} width={28} />
         <p className={classes.title}>
-          Alum<p className={classes.titleHighlight}>NUS</p>
+          Alum<span className={classes.titleHighlight}>NUS</span>
         </p>
       </Container>
     </Header>
