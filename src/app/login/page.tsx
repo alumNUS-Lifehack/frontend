@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 
-import Image from 'next/image'
-import styles from './page.module.css'
+import Image from "next/image";
+import styles from "../page.module.css";
 
 export default function Login() {
   return (
@@ -17,7 +17,7 @@ export default function Login() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            By{' '}
+            By{" "}
             <Image
               src="/vercel.svg"
               alt="Vercel Logo"
@@ -93,5 +93,5 @@ export default function Login() {
         </a>
       </div>
     </main>
-  )
+  );
 }
