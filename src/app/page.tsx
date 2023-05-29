@@ -1,10 +1,10 @@
 "use client";
 
+import 'src/app/globals.css';
 import { useState } from "react";
 import {
   AppShell,
   Navbar,
-  Footer,
   Aside,
   Text,
   MediaQuery,
