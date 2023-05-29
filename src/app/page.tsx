@@ -4,7 +4,6 @@ import { useState } from "react";
 import {
   AppShell,
   Navbar,
-  Footer,
   Aside,
   Text,
   MediaQuery,
