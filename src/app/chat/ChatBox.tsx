@@ -15,9 +15,11 @@ import SendMessage from "./SendMessage";
 import { Timestamp } from "firebase/firestore/lite";
 
 interface MessageData {
-  text: string;
-  sentBy: string;
-  createdAt: string;
+  doc: {
+    text: string;
+    sentBy: string;
+    createdAt: string;
+  };
 }
 
 interface UserProps {
