@@ -3,8 +3,10 @@ import { db } from "../firebase";
 import { addDoc, collection, serverTimestamp, doc } from "firebase/firestore";
 
 interface UserProps {
-  name: string;
-  id: string;
+  user: {
+    name: string;
+    id: string;
+  };
 }
 
 const SendMessage: React.FC<UserProps> = (user) => {
@@ -20,7 +22,7 @@ const SendMessage: React.FC<UserProps> = (user) => {
     await addDoc(collection(docRef, "messages"), {
       text: message,
       createdAt: serverTimestamp(),
-      sentBy: user.user.name
+      sentBy: user.user.name,
     });
     setMessage("");
   };
