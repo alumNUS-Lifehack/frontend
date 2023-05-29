@@ -2,7 +2,6 @@
 
 import styles from "../page.module.css";
 
-import { useState } from "react";
 import { useForm } from "@mantine/form";
 import { Button, TextInput, Box } from "@mantine/core";
 
@@ -34,10 +33,6 @@ export default function login() {
       password: "",
     },
   });
-
-  // States for checking error
-  const [submitted, setSubmitted] = useState(false);
-  const [error, setError] = useState(false);
 
   return (
     <Box maw={320} mx="auto">

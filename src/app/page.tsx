@@ -48,14 +48,9 @@ export default function Home() {
           </Aside>
         </MediaQuery>
       }
-      footer={
-        <Footer height={60} p="md">
-          Application footer
-        </Footer>
-      }
       header={<UnauthHeader />}
     >
-      <Text>Resize app to see responsive navbar in action</Text>
+      <Text>Welcome!</Text>
     </AppShell>
   );
 }
