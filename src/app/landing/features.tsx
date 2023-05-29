@@ -82,11 +82,11 @@ export function HeroBullets() {
               <span className={classes.highlight}>students</span>?
             </Title>
             <Text color="dimmed" mt="md">
-              We're here to redefine your career experience. Worried about
-              <b> finding jobs</b> in this tough economy? Can't seem to{" "}
+              We&apos;re here to redefine your career experience. Worried about
+              <b> finding jobs</b> in this tough economy? Can&apos;t seem to{" "}
               <b>find an internship</b>? Unsure about your <b>career path</b>?{" "}
               <br />
-              We've got you covered in just 3 simple steps.
+              We&apos;ve got you covered in just 3 simple steps.
             </Text>
 
             <List
@@ -105,7 +105,7 @@ export function HeroBullets() {
               </List.Item>
               <List.Item>
                 <b>Pick a Mentor</b> – Our mentors are all NUS alumni, and
-                they're here to help you!
+                they&apos;re here to help you!
               </List.Item>
               <List.Item>
                 <b>Start Chatting</b> – Ask away and get the answers you need!
