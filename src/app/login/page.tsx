@@ -38,7 +38,7 @@ const postLogin = async (values: { email: string; password: string}, router: any
   }
 };
 
-export default function login() {
+export default function Login() {
   const form = useForm({
     initialValues: {
       email: "",
