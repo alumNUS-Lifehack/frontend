@@ -4,7 +4,15 @@ import styles from "../page.module.css";
 
 import { useState } from "react";
 import { useForm } from "@mantine/form";
-import { Button, TextInput, Box, Checkbox } from "@mantine/core";
+import {
+  Button,
+  TextInput,
+  Container,
+  Checkbox,
+  Paper,
+  Title,
+  Space,
+} from "@mantine/core";
 import { YearPickerInput } from "@mantine/dates";
 
 import url from "../../../utils/url";
@@ -75,51 +83,72 @@ export default function MentorSignup() {
   const [error, setError] = useState(false);
 
   return (
-    <Box maw={320} mx="auto">
-      <form onSubmit={form.onSubmit((values) => postSignup(values))}>
-        <TextInput
-          label="Email"
-          placeholder="Email"
-          withAsterisk
-          {...form.getInputProps("email")}
-        />
-        <TextInput
-          label="Password"
-          placeholder="Password"
-          withAsterisk
-          {...form.getInputProps("password")}
-        />
-        <TextInput
-          label="Name"
-          placeholder="Name"
-          withAsterisk
-          {...form.getInputProps("name")}
-        />
-        <TextInput
-          label="Linkedin"
-          placeholder="Linkedin"
-          {...form.getInputProps("linkedin")}
-        />
-        <TextInput
-          label="Headline"
-          placeholder="Headline"
-          withAsterisk
-          {...form.getInputProps("headline")}
-        />
-        <YearPickerInput
-          label="Pick graduation year"
-          withAsterisk
-          {...form.getInputProps("gradyear")}
-        />
-        <TextInput
-          label="Course"
-          placeholder="Course"
-          withAsterisk
-          {...form.getInputProps("course")}
-        />
-        <Checkbox label="I am a mentor" {...form.getInputProps("is_mentor")} />
-        <Button type="submit">Sign up</Button>
-      </form>
-    </Box>
+    <Container size={420} my={40}>
+      <Title
+        align="center"
+        sx={(theme) => ({
+          fontWeight: 900,
+        })}
+      >
+        Sign Up
+      </Title>
+      <Paper withBorder shadow="md" p={30} mt={30} radius="md">
+        <form onSubmit={form.onSubmit((values) => postSignup(values))}>
+          <TextInput
+            label="Email"
+            placeholder="Email"
+            withAsterisk
+            {...form.getInputProps("email")}
+          />
+          <Space h="sm" />
+          <TextInput
+            label="Password"
+            placeholder="Password"
+            withAsterisk
+            {...form.getInputProps("password")}
+          />
+          <Space h="sm" />
+          <TextInput
+            label="Name"
+            placeholder="Name"
+            withAsterisk
+            {...form.getInputProps("name")}
+          />
+          <Space h="sm" />
+          <TextInput
+            label="Linkedin"
+            placeholder="Linkedin"
+            {...form.getInputProps("linkedin")}
+          />
+          <Space h="sm" />
+          <TextInput
+            label="Headline"
+            placeholder="Headline"
+            withAsterisk
+            {...form.getInputProps("headline")}
+          />
+          <Space h="sm" />
+          <YearPickerInput
+            label="Pick graduation year"
+            withAsterisk
+            {...form.getInputProps("gradyear")}
+          />
+          <Space h="sm" />
+          <TextInput
+            label="Course"
+            placeholder="Course"
+            withAsterisk
+            {...form.getInputProps("course")}
+          />
+          <Space h="md" />
+          <Checkbox
+            label="I am a mentor"
+            {...form.getInputProps("is_mentor")}
+          />
+          <Space h="md" />
+          <Button type="submit">Sign up</Button>
+        </form>
+      </Paper>
+    </Container>
   );
 }

@@ -11,6 +11,7 @@ import {
   Container,
   Title,
   Paper,
+  Space,
 } from "@mantine/core";
 import Link from "next/link";
 
@@ -63,11 +64,13 @@ export default function Login() {
             placeholder="Email"
             {...form.getInputProps("email")}
           />
+          <Space h="sm" />
           <TextInput
             label="Password"
             placeholder="Password"
             {...form.getInputProps("password")}
           />
+          <Space h="md" />
           <Button type="submit">Login</Button>
         </form>
       </Paper>
