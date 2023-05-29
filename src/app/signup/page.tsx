@@ -52,7 +52,8 @@ export default function mentorSignup() {
       is_mentor: false,
     },
     validate: {
-      email: (value) => (/^\S+@\S+$/.test(value) ? null : "Invalid email"), // add e0xxxxxx validation later
+      email: (value) =>
+        /^e\d{7}@u\.nus\.edu$/.test(value) ? null : "Invalid email", // add e0xxxxxx validation later
     },
   });
 
