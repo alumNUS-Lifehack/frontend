@@ -22,8 +22,6 @@ const postLogin = async (values: { email: string; password: string }) => {
   });
   const data = await response.json();
   if (data.token) {
-    console.log(data.token);
-    console.log(data.user);
     localStorage.setItem("token", "Bearer " + data.token);
     localStorage.setItem("user", JSON.stringify(data.user));
   }
