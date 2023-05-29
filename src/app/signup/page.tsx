@@ -42,7 +42,7 @@ const postSignup = async (values: {
   }
 };
 
-export default function mentorSignup() {
+export default function MentorSignup() {
   const form = useForm({
     initialValues: {
       email: "",
