@@ -37,7 +37,15 @@ const postLogin = async (
   if (data.token) {
     localStorage.setItem("token", "Bearer " + data.token);
     localStorage.setItem("user", JSON.stringify(data.user));
-    router.push("/home");
+    if (data.user.is_mentor) {
+      router.push("/chat");
+    } else {
+      if (data.user.assigned_mentor) {
+        router.push("/chat");
+      } else {
+        router.push("/home");
+      }
+    }
   }
 };
 
